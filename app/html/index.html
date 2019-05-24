@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('blocks/_head.html')
+
+<body>
+
+	<!-- white-plate -->
+	<div class="white-plate">
+		<div class="container-fluid">
+
+			@@include('blocks/header.html')
+
+			<div class="line-between"></div>
+			<!-- content block -->
+			<div class="row">
+
+				<div class="col-md-3 col-lg-2">
+					@@include('blocks/sidebar.html')
+				</div>
+
+				<!-- Center Part -->
+				<div class="col-md-9 col-lg-10">
+					<div class="row">
+
+						@@include('product-cards/product-1.html')
+						@@include('product-cards/product-2.html')
+						@@include('product-cards/product-3.html')
+						@@include('product-cards/product-4.html')
+
+					</div>
+				</div>
+				<!-- // Center Part -->
+			</div>
+			<!-- content block -->
+		</div>
+	</div>
+	<!-- // white-plate -->
+
+	@@include('blocks/footer.html')
+	@@include('blocks/_foot.html')
+
+</body>
+
+</html>

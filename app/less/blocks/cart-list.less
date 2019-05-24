@@ -1,0 +1,78 @@
+.cart-list-wrapper {
+	position: relative;
+	align-self: center;
+}
+
+.cart-list__button {
+	display: inline-block;
+	padding: 7px 15px 5px;
+	flex-grow: 0;
+	align-self: center;
+
+	background-color: #C3C3C3;
+	border-radius: 4px;
+
+	text-align: center;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 14px;
+	color: #fff;
+	font-weight: 600;
+	letter-spacing: 1px;
+
+	cursor: pointer;
+	transition: 0.2s ease-in;
+}
+
+.cart-list__button:hover,
+.cart-list__button:focus,
+.cart-list__button:active {
+	background-color: @orange;
+}
+
+.fav-list-dropdown {
+	display: none;
+
+	position: absolute;
+	z-index: 9;
+	top: 100%;
+	right: 0;
+
+	margin-top: 10px;
+	height: auto;
+	width: 300px;
+	background-color: #FFF;
+	box-shadow: 0px 0px 15px #b2c3ed;
+	border-radius: 6px;
+	padding: 0px 15px;
+}
+
+.fav-list-item {
+	display: flex;
+	align-items: center;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	border-bottom: 1px solid #eceff5;
+
+	&:last-child {
+		border-bottom: none;
+	}
+}
+
+.fav-list-item__img {
+	width: 64px;
+	height: auto;
+}
+
+.fav-list-item__title {
+	margin-left: 15px;
+	margin-right: 15px;
+}
+
+.fav-list-item__delete {
+	padding: 4px;
+	color: #464646;
+}
+
+.fav-list-item__delete:hover {
+	color: @orange;
+}

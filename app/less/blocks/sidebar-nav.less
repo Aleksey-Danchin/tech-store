@@ -1,0 +1,62 @@
+.nav-section {
+	margin-bottom: 25px;
+}
+.nav-section__title {
+	font-size: 18px;
+	font-weight: 800;
+	margin-bottom: 15px;
+	color: #000;
+	// color: @gray;
+}
+.nav {
+	font-family: 'Montserrat', sans-serif;
+	display: flex;
+	flex-direction: column;
+}
+
+@media (max-width: 576px) {
+	.nav {
+		text-align: center;
+	}
+}
+
+.nav__element {
+	margin-bottom: 15px;
+}
+
+.nav__link {
+	display: inline-block;
+	color: #000;
+	font-weight: 400;
+	font-size: 14px;
+	padding: 8px 0px;
+	border-radius: 5px;
+	transition: 0.2s ease-in;
+	
+	&:hover {
+		text-decoration: none;
+		i {
+		 	color: #717171;
+		}
+	}
+}
+
+.nav__link i {
+	font-size: 18px;
+	margin-right: 5px;
+	color: @gray;
+}
+
+.nav__link--active, .nav__link--active i {
+	color: @orange;
+} 
+
+.input-price-wrapper {
+	display: inline-block;
+}
+.input-price-before {
+	width: 70px !important;
+}
+.input-price-after {
+	width: 70px !important;
+}
