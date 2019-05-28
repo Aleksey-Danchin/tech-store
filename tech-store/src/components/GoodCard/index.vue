@@ -7,17 +7,12 @@
 					<div class="card-top__new" v-if='isNew'>Новинка</div>
 				</div>
 				<div class="card-top__right">
-					<template v-if='isFavorites === undefined'>
-						<div class="card-top__fav" title="Добавить в избранное">
-							<i class="far fa-heart"></i>
-						</div>
-					</template>
-
-					<template v-else>
-						<div class="card-top__fav card-top__fav--active" title="Убрать из избранного">
-							<i class="fas fa-heart"></i>
-						</div>
-					</template>
+					<div class="card-top__fav" title="Добавить в избранное" v-if='isFavorites === undefined'>
+						<i class="far fa-heart"></i>
+					</div>
+					<div class="card-top__fav card-top__fav--active" title="Убрать из избранного" v-else>
+						<i class="fas fa-heart"></i>
+					</div>
 				</div>
 			</div>
 			<div class="product-img">

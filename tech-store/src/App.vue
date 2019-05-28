@@ -17,52 +17,10 @@
 									<i class="far fa-heart"></i> Избранное
 								</div>
 								<div class="list-dropdown">
-									<div class="product-list-item">
-										<div class="product-list-item__img">
-											<img src="@/assets/img/products/iphone.jpg" alt="iPhone">
-										</div>
-										<div class="product-list-item__title">
-											<a href="#">Apple iPhone X 256 ГБ «серый космос»</a>
-										</div>
-										<a href="#" class="product-list-item__delete">
-										<i class="fas fa-times"></i>
-										</a>
-									</div>
-									<div class="product-list-item">
-										<div class="product-list-item__img">
-											<img src="@/assets/img/products/iphone.jpg" alt="iPhone">
-										</div>
-										<div class="product-list-item__title">
-											<a href="#">Apple iPhone X 256 ГБ «серый космос»</a>
-										</div>
-										<a href="#" class="product-list-item__delete">
-										<i class="fas fa-times"></i>
-										</a>
-									</div>
-									<div class="product-list-item">
-										<div class="product-list-item__img">
-											<img src="@/assets/img/products/iphone.jpg" alt="iPhone">
-										</div>
-										<div class="product-list-item__title">
-											<a href="#">Apple iPhone X 256 ГБ «серый космос»</a>
-										</div>
-										<a href="#" class="product-list-item__delete">
-										<i class="fas fa-times"></i>
-										</a>
-									</div>
-									<div class="product-list-item">
-										<div class="product-list-item__img">
-											<img src="@/assets/img/products/iphone.jpg" alt="iPhone">
-										</div>
-										<div class="product-list-item__title">
-											<a href="#">Apple iPhone X 256 ГБ «серый космос»</a>
-										</div>
-										<a href="#" class="product-list-item__delete">
-										<i class="fas fa-times"></i>
-										</a>
-									</div>
 								</div>
 							</div>
+							<button v-on:click='sort()'>Сортировать</button>
+							<button v-on:click='update()'>Обновить данные</button>
 							<div class="cart-list-wrapper">
 								<div class="cart-list__button">
 									<i class="fas fa-shopping-cart"></i>
@@ -70,50 +28,6 @@
 									<span class="cart-btn-badge">4</span>
 								</div>
 								<div class="list-dropdown">
-									<div class="product-list-item">
-										<div class="product-list-item__img">
-											<img src="@/assets/img/products/iphone.jpg" alt="iPhone">
-										</div>
-										<div class="product-list-item__title">
-											<a href="#">Apple iPhone X 256 ГБ «серый космос»</a>
-										</div>
-										<a href="#" class="product-list-item__delete">
-										<i class="fas fa-times"></i>
-										</a>
-									</div>
-									<div class="product-list-item">
-										<div class="product-list-item__img">
-											<img src="@/assets/img/products/iphone.jpg" alt="iPhone">
-										</div>
-										<div class="product-list-item__title">
-											<a href="#">Apple iPhone X 256 ГБ «серый космос»</a>
-										</div>
-										<a href="#" class="product-list-item__delete">
-										<i class="fas fa-times"></i>
-										</a>
-									</div>
-									<div class="product-list-item">
-										<div class="product-list-item__img">
-											<img src="@/assets/img/products/iphone.jpg" alt="iPhone">
-										</div>
-										<div class="product-list-item__title">
-											<a href="#">Apple iPhone X 256 ГБ «серый космос»</a>
-										</div>
-										<a href="#" class="product-list-item__delete">
-										<i class="fas fa-times"></i>
-										</a>
-									</div>
-									<div class="product-list-item">
-										<div class="product-list-item__img">
-											<img src="@/assets/img/products/iphone.jpg" alt="iPhone">
-										</div>
-										<div class="product-list-item__title">
-											<a href="#">Apple iPhone X 256 ГБ «серый космос»</a>
-										</div>
-										<a href="#" class="product-list-item__delete">
-										<i class="fas fa-times"></i>
-										</a>
-									</div>
 									<div class="dropdown-cart-btn">
 										<a href="cart.html" class="btn btn-warning">Перейти в корзину</a>
 									</div>
@@ -209,34 +123,14 @@
 					<div class="col-md-9 col-lg-10">
 						<div class="row">
 							<good-card
-								price="79990"
-								oldPrice="89990"
-								src="/assets/img/products/iphone.jpg"
-								title="Apple iPhone X 256 ГБ «серый космос»"
-							/>
-
-							<good-card
-								price="79990"
-								isFavorites='true'
-								isDiscount='true'
-								src="/assets/img/products/iphone.jpg"
-								title="Apple iPhone X 256 ГБ «серый космос»"
-							/>
-
-							<good-card
-								price="79990"
-								oldPrice="89990"
-								isNew="true"
-								src="/assets/img/products/iphone.jpg"
-								title="Apple iPhone X 256 ГБ «серый космос»"
-							/>
-
-							<good-card
-								price="79990"
-								oldPrice="89990"
-								isDiscount='true'
-								src="/assets/img/products/iphone.jpg"
-								title="Apple iPhone X 256 ГБ «серый космос»"
+								v-for='good of goods'
+								:price='good.price'
+								:oldPrice='good.oldPrice'
+								:src='good.src'
+								:title='good.title'
+								:isFavorites='good.isFavorites'
+								:isDiscount='good.isDiscount'
+								:isNew='good.isNew'
 							/>
 						</div>
 					</div>
@@ -269,8 +163,20 @@ export default {
 		return {}
 	},
 	
-	computed: {},
+	computed: {
+		goods () {
+			return this.$store.state.goods
+		}
+	},
 	
-	methods: {}
+	methods: {
+		sort () {
+			this.$store.dispatch('sort')
+		},
+
+		update () {
+			this.$store.dispatch('update')
+		}
+	}
 }
 </script>

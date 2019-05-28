@@ -1,16 +1,45 @@
+import imitationServer from './imitationServer'
+
 import Vue from 'vue'
 import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
-  state: {
+const store = new Vuex.Store({
+	state: {
+		date: 0,
+		goods: []
+	},
 
-  },
-  mutations: {
+	mutations: {
+		sort (state, goods) {
+			state.goods = goods
+		},
 
-  },
-  actions: {
+		update (state, goods) {
+			state.goods = goods
+			state.date = Date.now()
+		}
+	},
 
-  }
+	actions: {
+		async update () {
+			if (Date.now() > this.state.date + 5000) {
+				const goods = await imitationServer.getGoods('/goods')
+
+				this.commit('update', goods)
+			}
+		},
+
+		sort () {
+			const goods = this.state.goods.sort(rSort)
+			this.commit('sort', goods)
+		}
+	}
 })
+
+export default store
+
+function rSort () {
+	return Math.random() - Math.random()
+}
