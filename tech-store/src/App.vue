@@ -4,138 +4,11 @@
 		<div class="white-plate">
 			<div class="container-fluid">
 				<!-- header -->
-				<div class="header">
-					<div class="row">
-						<div class="col-sm-6">
-							<a href="index.html" class="site-logo">
-							<span>техно</span>Store
-							</a>
-						</div>
-						<div class="col-sm-6 d-flex justify-content-end">
-							<div class="fav-list-wrapper">
-								<div class="fav-list__button">
-									<i class="far fa-heart"></i> Избранное
-								</div>
-								<div class="list-dropdown">
-								</div>
-							</div>
-							<button v-on:click='sort()'>Сортировать</button>
-							<button v-on:click='update()'>Обновить данные</button>
-							<div class="cart-list-wrapper">
-								<div class="cart-list__button">
-									<i class="fas fa-shopping-cart"></i>
-									Корзина
-									<span class="cart-btn-badge">4</span>
-								</div>
-								<div class="list-dropdown">
-									<div class="dropdown-cart-btn">
-										<a href="cart.html" class="btn btn-warning">Перейти в корзину</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+				<main-header/>
 				<!-- // header -->
-				<div class="line-between"></div>
+				<div class="line-between"/>
 				<!-- content block -->
-				<div class="row">
-					<div class="col-md-3 col-lg-2">
-						<div class="nav-section">
-							<div class="nav-section__title">Категории</div>
-							<ul class="nav">
-								<li class="nav__element">
-									<a href="#!" class="nav__link nav__link--active">
-									<i class="fas fa-check-square"></i>
-									Все товары
-									</a>
-								</li>
-								<li class="nav__element">
-									<a href="#!" class="nav__link">
-									<i class="far fa-square"></i>
-									Телефоны
-									</a>
-								</li>
-								<li class="nav__element">
-									<a href="#!" class="nav__link">
-									<i class="far fa-square"></i>
-									Планшеты
-									</a>
-								</li>
-								<li class="nav__element">
-									<a href="#!" class="nav__link">
-									<i class="far fa-square"></i>
-									Ноутбуки
-									</a>
-								</li>
-								<li class="nav__element">
-									<a href="#!" class="nav__link">
-									<i class="far fa-square"></i>
-									Компьютеры
-									</a>
-								</li>
-							</ul>
-						</div>
-						<div class="nav-section">
-							<div class="nav-section__title">Цена</div>
-							<div class="input-price-wrapper form-inline">
-								<input type="number" placeholder="От" class="form-control input-price-before">
-								<input type="number" placeholder="До" class="form-control input-price-after">
-							</div>
-						</div>
-						<div class="nav-section">
-							<div class="nav-section__title">Производители</div>
-							<ul class="nav">
-								<li class="nav__element">
-									<a href="#!" class="nav__link nav__link--active">
-									<i class="fas fa-check-square"></i>
-									Все
-									</a>
-								</li>
-								<li class="nav__element">
-									<a href="#!" class="nav__link">
-									<i class="far fa-square"></i>
-									Apple
-									</a>
-								</li>
-								<li class="nav__element">
-									<a href="#!" class="nav__link">
-									<i class="far fa-square"></i>
-									Google
-									</a>
-								</li>
-								<li class="nav__element">
-									<a href="#!" class="nav__link">
-									<i class="far fa-square"></i>
-									Huawei
-									</a>
-								</li>
-								<li class="nav__element">
-									<a href="#!" class="nav__link">
-									<i class="far fa-square"></i>
-									Yandex
-									</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-					<!-- Center Part -->
-					<div class="col-md-9 col-lg-10">
-						<div class="row">
-							<good-card
-								v-for='good of goods'
-								:price='good.price'
-								:oldPrice='good.oldPrice'
-								:src='good.src'
-								:title='good.title'
-								:isFavorites='good.isFavorites'
-								:isDiscount='good.isDiscount'
-								:isNew='good.isNew'
-							/>
-						</div>
-					</div>
-					<!-- // Center Part -->
-				</div>
+				<router-view/>
 				<!-- content block -->
 			</div>
 		</div>
@@ -150,33 +23,11 @@
 </template>
 
 <script>
-import './style.css'
-
-import GoodCard from '@/components/GoodCard/index'
+import MainHeader from '@/components/MainHeader/index'
 
 export default {
 	components: {
-		GoodCard
-	},
-
-	data () {
-		return {}
-	},
-	
-	computed: {
-		goods () {
-			return this.$store.state.goods
-		}
-	},
-	
-	methods: {
-		sort () {
-			this.$store.dispatch('sort')
-		},
-
-		update () {
-			this.$store.dispatch('update')
-		}
+		MainHeader
 	}
 }
 </script>

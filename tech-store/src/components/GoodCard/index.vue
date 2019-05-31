@@ -36,7 +36,7 @@
 					</template>
 				</div>
 				<h4 class="item-title">
-					<a href="product-page.html">{{ title }}</a>
+					<router-link :to='`/product/${id}`'>{{ title }}</router-link>
 				</h4>
 				<div class="card-buy">В корзину</div>
 			</div>
@@ -48,7 +48,7 @@
 import './style.css'
 
 export default {
-	props: ['price', 'oldPrice', 'isNew', 'isDiscount', 'isFavorites', 'src', 'title'],
+	props: ['price', 'oldPrice', 'isNew', 'isDiscount', 'isFavorites', 'src', 'title', 'id'],
 	name: 'goodCard'
 }
 </script>

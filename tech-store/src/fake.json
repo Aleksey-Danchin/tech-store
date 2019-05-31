@@ -1,0 +1,46 @@
+[
+	{
+		"id": 1,
+		"price": 79989,
+		"oldPrice": 89989,
+		"src": "/assets/img/products/iphone.jpg",
+		"title": "Apple iPhone X 256 ГБ «серый космос»",
+		"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam eaque itaque rerum eveniet placeat. Eum consequuntur nihil est vero porro.\nLorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, corrupti!\nLorem ipsum dolor sit amet."
+	},
+	{
+		"id": 2,
+		"price": 79989,
+		"isFavorites": true,
+		"isDiscount": true,
+		"src": "/assets/img/products/iphone.jpg",
+		"title": "Apple iPhone X 256 ГБ «серый космос»",
+		"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque unde nostrum blanditiis odio totam, at, aspernatur sapiente impedit inventore dolore.\nLorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, unde!\nLorem ipsum dolor sit amet."
+	},
+	{
+		"id": 3,
+		"price": 79989,
+		"oldPrice": 89989,
+		"isNew": true,
+		"src": "/assets/img/products/iphone.jpg",
+		"title": "Apple iPhone X 256 ГБ «серый космос»",
+		"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam culpa praesentium provident tenetur ab, pariatur omnis? Adipisci, dolor sequi ducimus.\nLorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, sint.\nLorem ipsum dolor sit amet."
+	},
+	{
+		"id": 4,
+		"price": 79989,
+		"oldPrice": 89989,
+		"isDiscount": true,
+		"src": "/assets/img/products/iphone.jpg",
+		"title": "Apple iPhone X 256 ГБ «серый космос»",
+		"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci porro quibusdam animi, eum saepe impedit ipsa, sequi sint error consectetur?\nLorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, nesciunt.\nLorem ipsum dolor sit amet."
+	},
+	{
+		"id": 5,
+		"price": 164990,
+		"oldPrice": 185990,
+		"isDiscount": true,
+		"src": "/assets/img/products/imac.jpg",
+		"title": "Apple iMac 27\" Retina 5K Core i5 3.8 ГГц, 8 ГБ, 2 ТБ Fusion Drive, Radeon Pro 580 8 ГБ",
+		"description": "Настольный компьютер, который погружает вас в контент. Буквально. Эта идея лежит в основе современного iMac — и сегодня она актуальна как никогда.\n\nСовершенно новые процессоры, инновационные графические технологии, передовые накопители и разъёмы с впечатляющей пропускной способностью — всё это новый iMac. А его дисплей Retina способен оживить любую картинку, ведь по яркости и качеству цветопередачи ему нет равных среди iMac.\n\nРаботать на iMac теперь ещё интереснее и увлекательнее."
+	}
+]

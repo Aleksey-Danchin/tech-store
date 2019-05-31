@@ -1,4 +1,4 @@
-import imitationServer from './imitationServer'
+import imitationServer from '@/imitationServer'
 
 import Vue from 'vue'
 import Vuex from 'vuex'
@@ -6,6 +6,10 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
+	modules: {
+		cart: require('./cart').default
+	},
+
 	state: {
 		date: 0,
 		goods: []
@@ -34,6 +38,14 @@ const store = new Vuex.Store({
 		sort () {
 			const goods = this.state.goods.sort(rSort)
 			this.commit('sort', goods)
+		},
+
+		getGoodById (id) {
+			for (const good in this.state.goods) {
+				if (good.id === id) {
+					return good
+				}
+			}
 		}
 	}
 })

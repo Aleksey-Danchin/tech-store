@@ -1,36 +1,9 @@
+import fake from './fake.json'
+
 const api = {}
 
 if (!localStorage.getItem('goods')) {
-	localStorage.setItem('goods', JSON.stringify([
-			{
-				price: 79989,
-				oldPrice: 89989,
-				src: "/assets/img/products/iphone.jpg",
-				title: "Apple iPhone X 256 ГБ «серый космос»"
-			},
-			{
-				price: 79989,
-				isFavorites: true,
-				isDiscount: true,
-				src: "/assets/img/products/iphone.jpg",
-				title: "Apple iPhone X 256 ГБ «серый космос»"
-			},
-			{
-				price: 79989,
-				oldPrice: 89989,
-				isNew: true,
-				src: "/assets/img/products/iphone.jpg",
-				title: "Apple iPhone X 256 ГБ «серый космос»"
-			},
-			{
-				price: 79989,
-				oldPrice: 89989,
-				isDiscount: true,
-				src: "/assets/img/products/iphone.jpg",
-				title: "Apple iPhone X 256 ГБ «серый космос»"
-			}
-		])
-	)
+	localStorage.setItem('goods', JSON.stringify(fake))
 }
 
 api.getGoods = () => {
