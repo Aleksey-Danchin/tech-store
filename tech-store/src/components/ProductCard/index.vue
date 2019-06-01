@@ -48,7 +48,15 @@
 import './style.css'
 
 export default {
-	props: ['price', 'oldPrice', 'isNew', 'isDiscount', 'isFavorites', 'src', 'title', 'id'],
-	name: 'goodCard'
+	props: [
+		'price',
+		'oldPrice',
+		'isNew',
+		'isDiscount',
+		'isFavorites',
+		'src',
+		'title',
+		'id'
+	]
 }
 </script>

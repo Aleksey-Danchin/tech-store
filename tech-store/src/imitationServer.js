@@ -2,17 +2,18 @@ import fake from './fake.json'
 
 const api = {}
 
-if (!localStorage.getItem('goods')) {
-	localStorage.setItem('goods', JSON.stringify(fake))
+if (!localStorage.getItem('productsList')) {
+	localStorage.setItem('productsList', JSON.stringify(fake))
 }
 
-api.getGoods = () => {
-	return new Promise(async (resolve, reject) => {
-		await delay(500)
-		const json = localStorage.getItem('goods')
-		const goods = JSON.parse(json)
+api.getProductsList = () => {
+	return new Promise(async resolve => {
+		await delay(getRandom(50, 500))
+		
+		const json = localStorage.getItem('productsList')
+		const productsList = JSON.parse(json)
 
-		resolve(goods)
+		resolve(productsList)
 	})
 }
 
@@ -22,4 +23,8 @@ function delay (milliseconds) {
 	return new Promise(resolve => {
 		setTimeout(resolve, milliseconds)
 	})
+}
+
+function getRandom (min, max) {
+	return min + Math.floor(Math.random() * (max - min + 1))
 }

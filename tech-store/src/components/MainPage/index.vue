@@ -82,16 +82,17 @@
 		<!-- Center Part -->
 		<div class="col-md-9 col-lg-10">
 			<div class="row">
-				<good-card
-					v-for='good of goods'
-					:price='good.price'
-					:oldPrice='good.oldPrice'
-					:src='good.src'
-					:title='good.title'
-					:isFavorites='good.isFavorites'
-					:isDiscount='good.isDiscount'
-					:isNew='good.isNew'
-					:id='good.id'
+				<product-card
+					v-for='item of productsList'
+					:isFavorites='item.isFavorites'
+					:isDiscount='item.isDiscount'
+					:oldPrice='item.oldPrice'
+					:price='item.price'
+					:isNew='item.isNew'
+					:title='item.title'
+					:src='item.src'
+					:key='item.id'
+					:id='item.id'
 				/>
 			</div>
 		</div>
@@ -102,11 +103,11 @@
 <script>
 import './style.css'
 
-import GoodCard from '@/components/GoodCard/index'
+import ProductCard from '@/components/ProductCard/index'
 
 export default {
 	components: {
-		GoodCard
+		ProductCard
 	},
 
 	data () {
@@ -114,18 +115,18 @@ export default {
 	},
 	
 	computed: {
-		goods () {
-			return this.$store.state.goods
+		productsList () {
+			return this.$store.state.products.list
 		}
 	},
 	
 	methods: {
 		sort () {
-			this.$store.dispatch('sort')
+			this.$store.dispatch('products/sort')
 		},
 
 		update () {
-			this.$store.dispatch('update')
+			this.$store.dispatch('products/update')
 		}
 	}
 }

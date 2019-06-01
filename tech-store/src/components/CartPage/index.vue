@@ -2,6 +2,7 @@
 	<div class="row">
 		<div class="col">
 			<div class="title-1">Сделать заказ</div>
+
 			<div class="order-item">
 				<div class="order-item-data">
 					<div class="order-img">
@@ -67,29 +68,9 @@
 
 <script>
 export default {
-	created () {
-		console.log(this.products)
-	},
-
 	computed: {
-		base () {
-			return this.$store.state.goods
-		},
-
 		products () {
-			const goods = this.$store.state.cart.goods
-			const result = []
-
-			for (const good of goods) {
-				for (const bGood of this.base) {
-					if (bGood.id === this.base.id) {
-						result.push(Object.assign({}, bGood, good))
-						break
-					}
-				}
-			}
-
-			return result
+			return this.$store.getters['cart/order']
 		}
 	}
 }

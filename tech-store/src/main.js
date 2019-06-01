@@ -3,7 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
-store.dispatch('update')
+store.dispatch('products/update')
 
 Vue.config.productionTip = false
 

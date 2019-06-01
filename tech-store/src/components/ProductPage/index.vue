@@ -39,21 +39,19 @@
 
 <script>
 export default {
-	created () {
-		console.log(this.product)
-	},
-
 	computed: {
 		id () {
 			return parseInt(this.$route.params.id)
 		},
 
 		product () {
-			for (const good of this.$store.state.goods) {
-				if (good.id === this.id) {
-					return good
+			for (const item of this.$store.state.products.list) {
+				if (item.id === this.id) {
+					return item
 				}
 			}
+
+			return {}
 		}
 	}
 }
