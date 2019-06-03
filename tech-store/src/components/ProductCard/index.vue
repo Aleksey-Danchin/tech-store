@@ -16,7 +16,9 @@
 				</div>
 			</div>
 			<div class="product-img">
-				<img v-bind:src="src">
+				<router-link :to='`/product/${id}`'>
+					<img v-bind:src="src">
+				</router-link>
 			</div>
 			<div class="card-body">
 				<div class="card-price-wrapper">
@@ -38,7 +40,7 @@
 				<h4 class="item-title">
 					<router-link :to='`/product/${id}`'>{{ title }}</router-link>
 				</h4>
-				<div class="card-buy">В корзину</div>
+				<div class="card-buy" @click.prevent="add(id)">В корзину</div>
 			</div>
 		</article>
 	</div>
@@ -57,6 +59,12 @@ export default {
 		'src',
 		'title',
 		'id'
-	]
+	],
+
+	methods: {
+		add (id) {
+			this.$store.dispatch('cart/plus', id)
+		}
+	}
 }
 </script>

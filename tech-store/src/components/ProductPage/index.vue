@@ -26,7 +26,7 @@
 						{{ product.oldPrice }} руб
 					</span>
 				</div>
-				<a href="cart.html" class="product-btn-order">В корзину</a>
+				<a href="cart.html" class="product-btn-order" @click.prevent="$store.dispatch('cart/plus', id)">В корзину</a>
 				<div class="product-desc">
 					{{ product.description }}
 				</div>

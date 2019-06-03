@@ -103,6 +103,8 @@
 <script>
 import './style.css'
 
+import { mapState } from 'vuex'
+
 import ProductCard from '@/components/ProductCard/index'
 
 export default {
@@ -115,9 +117,13 @@ export default {
 	},
 	
 	computed: {
-		productsList () {
-			return this.$store.state.products.list
-		}
+		// productsList () {
+		// 	return this.$store.state.products.list
+		// },
+
+		...mapState({
+			productsList: state => state.products.list
+		})
 	},
 	
 	methods: {

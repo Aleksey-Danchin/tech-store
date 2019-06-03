@@ -9,33 +9,6 @@
 	},
 	{
 		"id": 2,
-		"price": 79989,
-		"isFavorites": true,
-		"isDiscount": true,
-		"src": "/assets/img/products/iphone.jpg",
-		"title": "Apple iPhone X 256 ГБ «серый космос»",
-		"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque unde nostrum blanditiis odio totam, at, aspernatur sapiente impedit inventore dolore.\nLorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, unde!\nLorem ipsum dolor sit amet."
-	},
-	{
-		"id": 3,
-		"price": 79989,
-		"oldPrice": 89989,
-		"isNew": true,
-		"src": "/assets/img/products/iphone.jpg",
-		"title": "Apple iPhone X 256 ГБ «серый космос»",
-		"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam culpa praesentium provident tenetur ab, pariatur omnis? Adipisci, dolor sequi ducimus.\nLorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, sint.\nLorem ipsum dolor sit amet."
-	},
-	{
-		"id": 4,
-		"price": 79989,
-		"oldPrice": 89989,
-		"isDiscount": true,
-		"src": "/assets/img/products/iphone.jpg",
-		"title": "Apple iPhone X 256 ГБ «серый космос»",
-		"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci porro quibusdam animi, eum saepe impedit ipsa, sequi sint error consectetur?\nLorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, nesciunt.\nLorem ipsum dolor sit amet."
-	},
-	{
-		"id": 5,
 		"price": 164990,
 		"oldPrice": 185990,
 		"isDiscount": true,

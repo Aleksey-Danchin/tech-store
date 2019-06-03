@@ -24,7 +24,7 @@
 						<div class="cart-list__button">
 							<i class="fas fa-shopping-cart"></i>
 							Корзина
-							<span class="cart-btn-badge">4</span>
+							<span class="cart-btn-badge" v-if='totalCount'>{{ totalCount }}</span>
 						</div>
 					</router-link>
 					<div class="list-dropdown">
@@ -40,6 +40,12 @@
 
 <script>
 export default {
+	computed: {
+		totalCount () {
+			return this.$store.getters['cart/totalCount']
+		}
+	},
+
 	methods: {
 		sort () {
 			this.$store.dispatch('sort')

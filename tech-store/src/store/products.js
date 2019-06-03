@@ -1,6 +1,6 @@
 import imitationServer from '@/imitationServer'
 
-const cartStore = {
+const productsStore = {
 	namespaced: true,
 
 	state: {
@@ -20,7 +20,7 @@ const cartStore = {
 	},
 
 	actions: {
-		async update ({ state, commit }) {
+		async update ({ state, commit, rootState }) {
 			if (Date.now() > state.date + 5000) {
 				const list = await imitationServer.getProductsList()
 				commit('update', list)
@@ -44,7 +44,7 @@ const cartStore = {
 	getters: {}
 }
 
-export default cartStore
+export default productsStore
 
 function rSort () {
 	return Math.random() - Math.random()
