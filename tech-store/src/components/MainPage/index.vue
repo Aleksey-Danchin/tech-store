@@ -2,6 +2,11 @@
 	<div class="row">
 		<div class="col-md-3 col-lg-2">
 			<div class="nav-section">
+				<ul class="nav">
+					<custom-checkbox :isActive.sync='favoriteMode'>Избранное</custom-checkbox>
+				</ul>
+			</div>
+			<div class="nav-section">
 				<div class="nav-section__title">Категории</div>
 				<ul class="nav">
 					<li class="nav__element">
@@ -39,8 +44,8 @@
 			<div class="nav-section">
 				<div class="nav-section__title">Цена</div>
 				<div class="input-price-wrapper form-inline">
-					<input type="number" placeholder="От" class="form-control input-price-before">
-					<input type="number" placeholder="До" class="form-control input-price-after">
+					<input type="number" placeholder="От" class="form-control input-price-before" v-model='minPrice'>
+					<input type="number" placeholder="До" class="form-control input-price-after" v-model='maxPrice'>
 				</div>
 			</div>
 			<div class="nav-section">
@@ -82,18 +87,7 @@
 		<!-- Center Part -->
 		<div class="col-md-9 col-lg-10">
 			<div class="row">
-				<product-card
-					v-for='item of productsList'
-					:isFavorites='item.isFavorites'
-					:isDiscount='item.isDiscount'
-					:oldPrice='item.oldPrice'
-					:price='item.price'
-					:isNew='item.isNew'
-					:title='item.title'
-					:src='item.src'
-					:key='item.id'
-					:id='item.id'
-				/>
+				<product-card v-for='item of filteredList' :data='item' />
 			</div>
 		</div>
 		<!-- // Center Part -->
@@ -103,27 +97,65 @@
 <script>
 import './style.css'
 
-import { mapState } from 'vuex'
-
 import ProductCard from '@/components/ProductCard/index'
+import CustomCheckbox from '@/components/CustomCheckbox/index'
 
 export default {
 	components: {
-		ProductCard
+		ProductCard,
+		CustomCheckbox
 	},
 
 	data () {
-		return {}
+		return {
+			minPrice: null,
+			maxPrice: null,
+			favoriteMode: false
+		}
+	},
+
+	created () {
+		const query = this.$route.query || {}
+
+		if (query.favoriteMode) {
+			this.favoriteMode = true
+		}
+
+		this.$router.replace(this.$route.path)
 	},
 	
 	computed: {
-		// productsList () {
-		// 	return this.$store.state.products.list
-		// },
+		productsList () {
+			const list = this.$store.state.products.list
+			const favorites = this.$store.state.cart.favorites
 
-		...mapState({
-			productsList: state => state.products.list
-		})
+			const productsList = list.map(item => {
+				return {
+					...item,
+					isFavorites: favorites.includes(item.id)
+				}
+			})
+
+			return productsList
+		},
+
+		filteredList () {
+			let list = this.productsList
+
+			if (this.minPrice !== null) {
+				list = list.filter(item => item.price >= this.minPrice)
+			}
+
+			if (this.maxPrice !== null) {
+				list = list.filter(item => item.price <= this.maxPrice)
+			}
+
+			if (this.favoriteMode) {
+				list = list.filter(item => item.isFavorites)
+			}
+
+			return list
+		}
 	},
 	
 	methods: {

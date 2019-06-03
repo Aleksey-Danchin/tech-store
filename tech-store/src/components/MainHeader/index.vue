@@ -10,7 +10,7 @@
 				</router-link>
 			</div>
 			<div class="col-sm-6 d-flex justify-content-end">
-				<div class="fav-list-wrapper">
+				<div class="fav-list-wrapper" @click="$router.push({ path: '/', query: { favoriteMode: true } })">
 					<div class="fav-list__button">
 						<i class="far fa-heart"></i> Избранное
 					</div>
@@ -39,11 +39,13 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
 	computed: {
-		totalCount () {
-			return this.$store.getters['cart/totalCount']
-		}
+		...mapGetters({
+			totalCount: 'cart/totalCount'
+		})
 	},
 
 	methods: {

@@ -9,6 +9,20 @@
 	},
 	{
 		"id": 2,
+		"price": 50000,
+		"src": "/assets/img/products/iphone.jpg",
+		"title": "Apple iPhone X 256 ГБ «серый космос»",
+		"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam eaque itaque rerum eveniet placeat. Eum consequuntur nihil est vero porro.\nLorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, corrupti!\nLorem ipsum dolor sit amet."
+	},
+	{
+		"id": 3,
+		"price": 75000,
+		"src": "/assets/img/products/iphone.jpg",
+		"title": "Apple iPhone X 256 ГБ «серый космос»",
+		"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam eaque itaque rerum eveniet placeat. Eum consequuntur nihil est vero porro.\nLorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, corrupti!\nLorem ipsum dolor sit amet."
+	},
+	{
+		"id": 4,
 		"price": 164990,
 		"oldPrice": 185990,
 		"isDiscount": true,

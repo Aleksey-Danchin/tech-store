@@ -3,44 +3,54 @@
 		<article class="card mb-4">
 			<div class="card-top">
 				<div class="card-top__left">
-					<div class="card-top__sale" v-if='isDiscount'>Скидка</div>
-					<div class="card-top__new" v-if='isNew'>Новинка</div>
+					<div class="card-top__sale" v-if='data.isDiscount'>Скидка</div>
+					<div class="card-top__new" v-if='data.isNew'>Новинка</div>
 				</div>
 				<div class="card-top__right">
-					<div class="card-top__fav" title="Добавить в избранное" v-if='isFavorites === undefined'>
-						<i class="far fa-heart"></i>
-					</div>
-					<div class="card-top__fav card-top__fav--active" title="Убрать из избранного" v-else>
+					<div
+						v-if='data.isFavorites'
+						@click.prevent="$store.dispatch('cart/favoriteToggle', data.id)"
+						class="card-top__fav card-top__fav--active"
+						title="Убрать из избранного"
+					>
 						<i class="fas fa-heart"></i>
+					</div>
+					<div
+						v-else
+						@click.prevent="$store.dispatch('cart/favoriteToggle', data.id)"
+						class="card-top__fav"
+						title="Добавить в избранное"
+					>
+						<i class="far fa-heart"></i>
 					</div>
 				</div>
 			</div>
 			<div class="product-img">
-				<router-link :to='`/product/${id}`'>
-					<img v-bind:src="src">
+				<router-link :to='`/product/${data.id}`'>
+					<img v-bind:src="data.src">
 				</router-link>
 			</div>
 			<div class="card-body">
 				<div class="card-price-wrapper">
-					<template v-if="oldPrice === undefined">
+					<template v-if="data.oldPrice === undefined">
 						<div class="card-price-regular">
-							{{ price }} <span>₽</span>
+							{{ data.price }} <span>₽</span>
 						</div>
 					</template>
 
 					<template v-else>
 						<div class="card-price-new">
-							{{ price }} <span>₽</span>
+							{{ data.price }} <span>₽</span>
 						</div>
 						<div class="card-price-old">
-							{{ oldPrice }} <span>₽</span>
+							{{ data.oldPrice }} <span>₽</span>
 						</div>
 					</template>
 				</div>
 				<h4 class="item-title">
-					<router-link :to='`/product/${id}`'>{{ title }}</router-link>
+					<router-link :to='`/product/${data.id}`'>{{ data.title }}</router-link>
 				</h4>
-				<div class="card-buy" @click.prevent="add(id)">В корзину</div>
+				<div class="card-buy" @click.prevent="add(data.id)">В корзину</div>
 			</div>
 		</article>
 	</div>
@@ -50,16 +60,7 @@
 import './style.css'
 
 export default {
-	props: [
-		'price',
-		'oldPrice',
-		'isNew',
-		'isDiscount',
-		'isFavorites',
-		'src',
-		'title',
-		'id'
-	],
+	props: ['data'],
 
 	methods: {
 		add (id) {

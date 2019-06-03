@@ -345,10 +345,10 @@ a.site-logo:hover span {
 	display: inline-block;
 }
 .input-price-before {
-	width: 70px !important;
+	width: 100px !important;
 }
 .input-price-after {
-	width: 70px !important;
+	width: 100px !important;
 }
 .title-1,
 .product-title {

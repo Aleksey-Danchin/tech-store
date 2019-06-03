@@ -7,12 +7,12 @@
 				<div class="order-item" :key='product.id'>
 					<div class="order-item-data">
 						<div class="order-img">
-							<router-link :to='`/product/${product.id}`'>
+							<router-link :to='`/product/${ product.id }`'>
 								<img class="order-img" :src="product.src">
 							</router-link>
 						</div>
 						<div class="order-desc">
-							<router-link :to='`/product/${product.id}`'>
+							<router-link :to='`/product/${ product.id }`'>
 								<h4 class="order-title">{{ product.title }}</h4>
 							</router-link>
 							<div class="order-price">{{ product.price }} ₽</div>
@@ -34,13 +34,13 @@
 							<img width="18" src="/assets/img/icons/delete.svg" alt="Удалить" @click.prevent='remove(product.id)'>
 						</a>
 					</div>
-				</div>				
+				</div>
 			</template>
 
 			<p>
-				<strong>Всего:</strong> {{ totalCount }} товаров
+				<strong>Всего:</strong> {{ totalCount }} товара/товаров
 				<br>
-				<strong>На сумму:</strong> {{ totalPrice }} рублей
+				<strong>На сумму:</strong> {{ totalPrice }} руб.
 			</p>
 
 			<form action="success.html">

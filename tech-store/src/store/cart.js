@@ -2,7 +2,8 @@ const cartStore = {
 	namespaced: true,
 
 	state: {
-		list: []
+		list: [],
+		favorites: []
 	},
 
 	mutations: {
@@ -31,6 +32,17 @@ const cartStore = {
 
 		clear (state) {
 			state.list = []
+			saveToLocalStorage()
+		},
+
+		favoriteToggle (state, id) {
+			if (state.favorites.includes(id)) {
+				const index = state.favorites.indexOf(id)
+				state.favorites.splice(index, 1)
+			} else {
+				state.favorites.push(id)
+			}
+
 			saveToLocalStorage()
 		}
 	},
@@ -64,6 +76,10 @@ const cartStore = {
 
 		clear ({ commit }) {
 			commit('clear')
+		},
+
+		favoriteToggle ({ commit }, id) {
+			commit('favoriteToggle', id)
 		}
 	},
 

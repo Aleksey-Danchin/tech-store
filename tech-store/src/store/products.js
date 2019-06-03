@@ -20,7 +20,7 @@ const productsStore = {
 	},
 
 	actions: {
-		async update ({ state, commit, rootState }) {
+		async update ({ state, commit }) {
 			if (Date.now() > state.date + 5000) {
 				const list = await imitationServer.getProductsList()
 				commit('update', list)
